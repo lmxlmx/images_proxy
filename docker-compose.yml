@@ -1,0 +1,12 @@
+version: '3'
+services:
+    image_proxy:
+        container_name: image_proxy
+        image: nginx
+        ports:
+         - 16088:8080
+        volumes:
+         - ./images:/workspace/images
+         - ./conf/images_proxy_nginx.conf:/etc/nginx/nginx.conf
+         - /etc/localtime:/etc/localtime:ro
+        restart: always
